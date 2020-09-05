@@ -61,6 +61,65 @@ class array
       this.a[j] = temp;
     }
   }
+  void merge_sort(int l,int u)
+  {
+    if(l<u)
+    {
+      int mid = (l+u)/2;
+      this.merge_sort(l,mid);
+      this.merge_sort(mid+1,u);
+      this.merge(l,mid,u);
+    }
+  }
+  void merge(int l,int m,int u)
+  {
+    int n1 = m-l+1;
+    int n2 = u-m;
+    int[] x = new int[n1];
+    int[] y = new int[n2];
+    int i;
+    int temp =l;
+    for(i=0;i<n1;i++)
+    {
+      x[i] = this.a[temp];
+      temp++;
+    }
+    temp = m+1;
+    for(i=0;i<n2;i++)
+    {
+      y[i] = this.a[temp];
+      temp++;
+    }
+    int p1 = 0;
+    int p2 = 0;
+    int k = l;
+    while((p1<n1)&&(p2<n2))
+    {
+      if(x[p1]<y[p2])
+      {
+        this.a[k] = x[p1];
+        p1++;
+      }
+      else
+      {
+        this.a[k] = y[p2];
+        p2++;
+      }
+      k++;
+    }
+    while(p1<n1)
+    {
+      this.a[k] = x[p1];
+      p1++;
+      k++;
+    }
+    while(p2<n2)
+    {
+      this.a[k] = y[p2];
+      p2++;
+      k++;
+    }
+  }
   void display(int t)
   {
     int i;
@@ -91,7 +150,7 @@ public class sort
     System.out.print("enter the no of elements in the array : ");
     int n = sc.nextInt();
     array arr = new array(n);
-    arr.insertion_sort();
+    arr.merge_sort(0,n-1);
     arr.display(t);
   }
 }
