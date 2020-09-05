@@ -54,33 +54,12 @@ class array
     return this.fibsearch(k,l,l+s-1);
 
   }
-  void display(int t)
-  {
-    int i;
-    System.out.print("the elements are : ");
-    if(t==1)
-    {
-      for(i=0;i<this.a.length;i++)
-      System.out.print(this.a[i]+" ");
-    }
-    else if(t==2)
-    {
-      for(i=0;i<this.a.length;i++)
-      System.out.print((char)this.a[i]+" ");
-    }
-    System.out.println("");
-  }
 }
 public class search
 {
   public static void main(String[] args)
   {
     Scanner sc = new Scanner(System.in);
-    System.out.println("enter the type of elements in the array");
-    System.out.println("1.int");
-    System.out.println("2.char");
-    System.out.print("enter your choice : ");
-    int t = sc.nextInt();
     System.out.print("enter the no of elements in the array : ");
     int n = sc.nextInt();
     array arr = new array(n);
@@ -124,4 +103,3 @@ public class search
     System.out.println("OOPS..!! You didn't entered a valid choice");
   }
 }
-
