@@ -120,12 +120,8 @@ public class search
       else
       System.out.println("key found at "+pos);
     }
-    //System.out.println("you chose Fibonacci Search");
     else
     System.out.println("OOPS..!! You didn't entered a valid choice");
-    //arr.display(t);
-
-
   }
 }
 
