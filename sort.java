@@ -120,6 +120,42 @@ class array
       k++;
     }
   }
+  int partition(int l,int u)
+  {
+    int piv = l;
+    int r1=l;
+    int r2=l+1;
+    int i=l+1;
+    while(i<=u)
+    {
+      if(this.a[piv] < this.a[i])
+      {
+        r2++;
+      }
+      else
+      {
+        int temp = this.a[r1+1];
+        this.a[r1+1] = this.a[i];
+        this.a[i] = temp;
+        r1++;
+        r2++;
+      }
+      i++;
+    }
+    int temp = this.a[r1];
+    this.a[r1] = this.a[l];
+    this.a[l] = temp;
+    return r1;
+  }
+  void quicksort(int l,int u)
+  {
+    if(l<u)
+    {
+      int p = this.partition(l,u);
+      this.quicksort(l,p-1);
+      this.quicksort(p+1,u);
+    }
+  }
   void display(int t)
   {
     int i;
@@ -150,7 +186,7 @@ public class sort
     System.out.print("enter the no of elements in the array : ");
     int n = sc.nextInt();
     array arr = new array(n);
-    arr.merge_sort(0,n-1);
+    arr.quicksort(0,n-1);
     arr.display(t);
   }
 }
