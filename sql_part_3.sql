@@ -285,7 +285,7 @@ from programmer
 where (sysdate - dob)/365 >= 20;
 
 -- 35)	Calculate the amount to be recovered for those packages whose development cost has not yet been recovered
-select pname, dcost - sold * scost
+select title, dcost - sold * scost
 from software
 where scost * sold - dcost < 0;
 
