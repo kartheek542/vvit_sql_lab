@@ -282,7 +282,7 @@ having count(*) = (
 -- 34)	Display the details of those who will be completed 20 years of service this year
 select *
 from programmer
-where (sysdate - dob)/365 >= 20;
+where (sysdate - doj)/365 >= 20;
 
 -- 35)	Calculate the amount to be recovered for those packages whose development cost has not yet been recovered
 select title, dcost - sold * scost
