@@ -339,7 +339,7 @@ from programmer;
 -- 47)	What is the amount paid salaries of male programmers who don’t know Cobol
 select SUM(salary)
 from programmer
-where gender = 'M' AND (prof1 not in ('Cobol') or prof2 not in ('Cobol'))
+where gender = 'M' AND (prof1 not in ('Cobol') AND prof2 not in ('Cobol'))
 
 -- 48)	Display the title, scost, dcost and difference between scost and dcost in descending order of difference
 select title, scost, dcost, dcost - scost
